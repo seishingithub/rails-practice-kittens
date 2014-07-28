@@ -1,3 +1,13 @@
 <div class="kitten">
-  <%= image_tag kitten.image %>
+  <%= link_to new_kitten_categorization_path(kitten), class: "kitten-link" do %>
+    <%= image_tag kitten.image %>
+  <% end %>
+
+  <% if kitten.categories.any? %>
+    <ul class="kitten-categories">
+      <% kitten.categories.sort_by(&:name).each do |category| %>
+        <li><%= category.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>

@@ -1,0 +1,6 @@
+<h1>Categorize</h1>
+<%= form_for [@kitten, @categorization] do |f| %>
+  <%= image_tag @kitten.image, class: "kitten-image" %>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name, prompt: true %>
+  <%= f.submit "Add Category", class: "categorization-button" %>
+<% end %>
